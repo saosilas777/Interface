@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 
 namespace Course.Entities {
@@ -12,6 +13,10 @@ namespace Course.Entities {
             Amount = amount;
         }
 
+        public override string ToString() {
+            return DueDate.ToString("dd/MM/yyyy") +
+                " - " + Amount.ToString("F2", CultureInfo.InvariantCulture);
+        }
 
     }
 }

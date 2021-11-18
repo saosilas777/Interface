@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace Course.Entities {
     class Contract {
@@ -7,18 +8,19 @@ namespace Course.Entities {
         public int Number { get; set; }
         public DateTime Date { get; set; }
         public double TotalValue { get; set; }
+        public List<Installment> Installments { get; set; }
 
         public Contract(int number, DateTime date, double totalValue) {
             Number = number;
             Date = date;
             TotalValue = totalValue;
+            Installments = new List<Installment>();
         }
 
-        public override string ToString() {
-            return "Number : " + Number +
-                "\nDate: " + Date +
-                "\nTotal: " + TotalValue.ToString("F2", CultureInfo.InvariantCulture);
+        public void AddInstallment(Installment installment) {
+            Installments.Add(installment);
         }
+       
 
     }
 }
